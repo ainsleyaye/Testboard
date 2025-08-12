@@ -2,5 +2,9 @@
 
 <div>
   <h2>Total Users</h2>
-  <p><%= @total_users %></p>
+  <p>
+    There <%= @total_users == 1 ? 'is' : 'are' %> a total of <%= @total_users %> <%= @total_users == 1 ? 'user' : 'users' %>.
+  </p>
+
+  <%= link_to 'Add New User', new_admin_user_path, class: "btn btn-primary" %>
 </div>
