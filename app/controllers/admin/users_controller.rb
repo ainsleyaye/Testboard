@@ -17,6 +17,25 @@ class UsersController < ApplicationController
       end
     end
 
+    def edit
+      @user = User.find(params[:id])
+    end
+    
+    def update
+      @user = User.find(params[:id])
+      if @user.update(user_params)
+        redirect_to admin_users_path, notice: 'User was successfully updated.'
+      else
+        render :edit
+      end
+    end
+
+    def delete
+      @user = User.find(params[:id])
+      @user.delete
+      redirect_to admin_users_path, notice: 'User wass successfully deleted.'
+    end  
+
     private
 
     def user_params
